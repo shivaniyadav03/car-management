@@ -37,11 +37,11 @@ const randomIntFromInterval = (min: number, max: number) => {
         Object.keys(action.payload).map(item => {
             const storeInRandomIndex = () => {
                 const randomIndex: number = randomIntFromInterval(0,unAssignedLots.length-1);
-                console.log('unAssignedLots[randomIndex]?.assignedTo',unAssignedLots[randomIndex]?.assignedTo);
                 if(unAssignedLots[randomIndex]?.assignedTo){
                     storeInRandomIndex()
                 }else{
                     unAssignedLots[randomIndex].assignedTo = action.payload[item];
+                    alert('Assign Lots:'+randomIndex);
                 }
             }
             storeInRandomIndex();
@@ -56,6 +56,19 @@ const randomIntFromInterval = (min: number, max: number) => {
             ...state,
             numberOfLots: currentNumberOfLots
         }
+    }
+    case 'EXIT_LOT':{
+        const currentNumberOfLots:any[]=state?.numberOfLots;
+         const updatedLots: any[] = currentNumberOfLots.map((item:any,index:number)=>{
+          if(item.lotid==action.payload){
+            item.assignedTo=null;            
+          }
+          return item;
+         });
+         return{
+             ...state,
+             numberOfLots: updatedLots
+         }
     }
     default:return {
         ...state

@@ -13,7 +13,6 @@ const AskNumberOfLots:React.FC=()=>{
       return item.assignedTo==null;
      });
      if(parseInt(inputForAvailableLots)<=unAssignedLots.length){
-       alert('Assign Lots');
        navigate('/availableLots',{state:{inputForAvailableLots: parseInt(inputForAvailableLots)}});
      }
      else{

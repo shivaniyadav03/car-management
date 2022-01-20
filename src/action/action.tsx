@@ -5,3 +5,9 @@ export const assignLots=(data:any)=>{
         payload:data
     }
 }
+export const exitLot=(lotid:number)=>{
+    return{
+        type:'EXIT_LOT',
+        payload:lotid
+    }
+}

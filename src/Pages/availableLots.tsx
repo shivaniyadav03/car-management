@@ -23,10 +23,8 @@ const AvailableLots:React.FC=()=>{
 
     const onSubmit=()=>{
         dispatch(assignLots(carInfo));
-    }
-
-    const goToAvailableLots=()=>{
-        navigate('/');
+        setCarInfo('');
+        navigate('/parkingArea');
     }
     return(
         <div>
@@ -37,7 +35,6 @@ const AvailableLots:React.FC=()=>{
          <br/>
          <br/>
          <Button variant="contained" color="primary" onClick={()=>{onSubmit()}}>Submit</Button>
-         <Button variant="contained" color="primary" onClick={()=>{goToAvailableLots()}}>Check For Available Lots</Button>
         </div>
     );
 }
