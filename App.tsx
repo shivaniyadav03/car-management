@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import AskNumberOfLots from "./src/Pages/askNumberOfLots";
+import store from './src/store/store';
+import  {Provider}  from "react-redux";
+import AvailableLots from "./src/Pages/availableLots";
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  return ( 
+        <Provider store={store}>
+            <BrowserRouter>
+             <Routes>
+               <Route path="/" element={<AskNumberOfLots/>}/>
+               <Route path="/availableLots" element={<AvailableLots/>}/>
+             </Routes>
+            </BrowserRouter>
+        </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
