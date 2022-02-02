@@ -1,7 +1,7 @@
 import { Button, Input } from '@material-ui/core';
 import React,{useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { assignLots } from '../action/action';
 
 type Location={
@@ -12,7 +12,9 @@ const AvailableLots:React.FC=()=>{
     const location=useLocation();
     const dispatch: any = useDispatch();
     const initialValue: any = {};
-    const {inputForAvailableLots}=location.state as Location;
+    const [stateData]=useState<any | string>(location.state || '');
+    const {inputForAvailableLots}=stateData;
+    // const {inputForAvailableLots}=location.state as Location;
     const [carInfo, setCarInfo] = useState(initialValue);
     const getRegistrationNumber=(e:any, index: number)=>{
 

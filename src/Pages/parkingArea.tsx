@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core';
 import React from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { exitLot } from '../action/action';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 
 const ParkingArea:React.FC=()=>{

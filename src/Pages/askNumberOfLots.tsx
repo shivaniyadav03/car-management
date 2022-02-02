@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button,Input } from '@material-ui/core';
 import { useSelector} from 'react-redux';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const AskNumberOfLots:React.FC=()=>{
     const [inputForAvailableLots,setInputForAvailableLots]=useState('');
@@ -27,7 +27,7 @@ const AskNumberOfLots:React.FC=()=>{
         <div>
         <Input type="number" placeholder='Ask for Available Lots' value={inputForAvailableLots} onChange={askForAvailableLots}/>
          <br/><br/>
-        <Button variant='contained' color='primary' onClick={onSubmit}>Ask For No Of Lots Available</Button>
+        <Button data-testid="availibilityOfLots" variant='contained' color='primary' onClick={onSubmit}>Ask For No Of Lots Available</Button>
         </div>
     );
 }
